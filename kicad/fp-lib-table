@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name ddr-ps2-controller)(type KiCad)(uri ${KIPRJMOD}/ddr-ps2-controller.pretty)(options "")(descr ""))
+)
