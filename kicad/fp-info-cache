@@ -1,4 +1,4 @@
-15943544537882490
+15945105445934490
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -42245,6 +42245,13 @@ SMD SMT ceramic resonator filter filter hand-soldering
 3
 3
 ddr-ps2-controller
+1PIN_VIA
+
+
+0
+1
+1
+ddr-ps2-controller
 Molex_35363_2mm_RA
 
 
@@ -42256,8 +42263,8 @@ Wurth_WL-SMSW_LED
 
 
 0
-2
-2
+3
+3
 Diode_SMD
 Diode_Bridge_Diotec_ABS
 SMD diode bridge ABS (Diotec), see https://diotec.com/tl_files/diotec/files/pdf/datasheets/abs2.pdf

@@ -1,4 +1,4 @@
-(module Molex_35363_2mm_RA (layer F.Cu) (tedit 5CFC9E5F)
+(module Molex_35363_2mm_RA (layer F.Cu) (tedit 5D01C5E7)
   (fp_text reference REF** (at 0.1 5.8) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
   )
@@ -59,4 +59,9 @@
   (pad 3 thru_hole circle (at 0 -2) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask))
   (pad 2 thru_hole circle (at 0 0) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask))
   (pad 1 thru_hole circle (at 0 2) (size 1.6 1.6) (drill 0.8) (layers *.Cu *.Mask))
+  (model ${KIPRJMOD}/../cad/353630360.wrl
+    (offset (xyz 4.318 0 2.794))
+    (scale (xyz 0.3937 0.3937 0.3937))
+    (rotate (xyz 0 0 90))
+  )
 )
