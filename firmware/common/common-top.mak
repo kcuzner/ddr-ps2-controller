@@ -4,6 +4,7 @@
 
 # Binary target
 BINARY = $(PROJECT)
+FUSES = $(BINARY)-fuses
 
 # Project structure
 SRCDIRS = src

@@ -19,7 +19,19 @@ clean:
 size:
 	$(SIZE) $(BINDIR)/$(BINARY).elf
 
+# Flash programming
+
+install: $(BINDIR)/$(BINARY).hex
+	$(AVRDUDE) -c $(PROGRAMMER) -p $(PMCU) -e -U flashw:$(BINDIR)/$(PROJECT).hex
+
+fuse: $(BINDIR)/$(FUSES).bin
+	$(AVRDUDE) -c $(PROGRAMMER) -p $(PMCU) -U lfuse:w:0x$(shell dd if=$< bs=1 count=1 | od -An -t x1 | tr -d ' '):m
+	$(AVRDUDE) -c $(PROGRAMMER) -p $(PMCU) -U hfuse:w:0x$(shell dd if=$< bs=1 skip=1 count=1 | od -An -t x1 | tr -d ' '):m
+
 # Compilation
+
+$(BINDIR)/$(FUSES).bin: $(BINDIR)/$(BINARY).elf
+	$(OBJCOPY) -j .fuse -O binary $< $@
 
 $(BINDIR)/$(BINARY).hex: $(BINDIR)/$(BINARY).elf
 	$(OBJCOPY) -O ihex $(OBJCOPY_FLGAS) $< $@
