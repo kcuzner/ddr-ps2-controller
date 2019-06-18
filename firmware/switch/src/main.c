@@ -6,35 +6,25 @@
  * Kevin Cuzner
  */
 
-#include <avr/io.h>
-
-/**
- * Fuse data for this program to work properly on the ATTiny 20
- */
-#ifdef __AVR_ATtiny20__
-#define FUSE_BODLEVEL2 (unsigned char)~_BV(6)
-#define FUSE_BODLEVEL1 (unsigned char)~_BV(5)
-#define FUSE_BODLEVEL0 (unsigned char)~_BV(4)
-#define FUSE_CKOUT     (unsigned char)~_BV(2)
-#define FUSE_WDTON     (unsigned char)~_BV(1)
-#define FUSE_RSTDSBL   (unsigned char)~_BV(0)
-
-typedef struct
-{
-  unsigned char byte;
-} __fuse_t;
-
-FUSES = {
-  .byte = (FUSE_BODLEVEL1)
-};
-
-#else
-#error "No fuses defined for selected processor"
-#endif
+#include "switches.h"
 
 int main(void)
 {
-  while (1) { }
+  uint8_t asserted = 0;
+
+  // Configure all pins.
+  switches_init();
+
+  while (1)
+  {
+    asserted = 0;
+    for (uint8_t i = PINS_BTN0; i < PINS_BTN5; i++)
+    {
+      if (switches_get_state(i))
+        asserted = 1;
+    }
+    switches_set_state(PINS_BTN5, asserted);
+  }
 
   return 0;
 }
