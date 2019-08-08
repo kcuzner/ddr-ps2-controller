@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 9)
+    (drawings 14)
     (tracks 363)
     (zones 0)
     (modules 73)
@@ -2265,6 +2265,13 @@
     )
   )
 
+  (gr_arc (start 199.6 80.4) (end 200 80.4) (angle -90) (layer Edge.Cuts) (width 0.05))
+  (gr_arc (start 199.6 119.6) (end 199.6 120) (angle -90) (layer Edge.Cuts) (width 0.05))
+  (gr_arc (start 100.4 119.6) (end 100 119.6) (angle -90) (layer Edge.Cuts) (width 0.05))
+  (gr_arc (start 100.4 80.4) (end 100.4 80) (angle -90) (layer Edge.Cuts) (width 0.05))
+  (gr_text http://kevincuzner.com/ (at 170.8 98.916) (layer F.SilkS) (tstamp 5D4C0D60)
+    (effects (font (size 0.635 0.635) (thickness 0.15)) (justify left))
+  )
   (gr_text "Rev A" (at 185.9 97.9) (layer F.SilkS)
     (effects (font (size 0.635 0.635) (thickness 0.15)) (justify right))
   )
@@ -2298,10 +2305,10 @@
     (arrow2a (pts (xy 100 71) (xy 101.126504 71.586421)))
     (arrow2b (pts (xy 100 71) (xy 101.126504 70.413579)))
   )
-  (gr_line (start 100 120) (end 100 80) (layer Edge.Cuts) (width 0.05) (tstamp 5CFF47BC))
-  (gr_line (start 200 120) (end 100 120) (layer Edge.Cuts) (width 0.05))
-  (gr_line (start 200 80) (end 200 120) (layer Edge.Cuts) (width 0.05))
-  (gr_line (start 100 80) (end 200 80) (layer Edge.Cuts) (width 0.05))
+  (gr_line (start 100 119.6) (end 100 80.4) (layer Edge.Cuts) (width 0.05) (tstamp 5CFF47BC))
+  (gr_line (start 199.6 120) (end 100.4 120) (layer Edge.Cuts) (width 0.05))
+  (gr_line (start 200 80.4) (end 200 119.6) (layer Edge.Cuts) (width 0.05))
+  (gr_line (start 100.4 80) (end 199.6 80) (layer Edge.Cuts) (width 0.05))
 
   (segment (start 153.2 98.9875) (end 153.2125 99) (width 0.381) (layer F.Cu) (net 1))
   (segment (start 153.2 97.9) (end 153.2 98.9875) (width 0.381) (layer F.Cu) (net 1))
