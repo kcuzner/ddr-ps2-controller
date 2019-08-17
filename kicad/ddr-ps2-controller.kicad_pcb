@@ -10,6 +10,13 @@
   )
 
   (page A4)
+  (title_block
+    (title "DDR PS2 Controller")
+    (date 2019-08-07)
+    (rev A)
+    (company "Kevin Cuzner")
+  )
+
   (layers
     (0 F.Cu signal)
     (31 B.Cu signal)
@@ -65,7 +72,7 @@
     (grid_origin 164.7 82.4)
     (visible_elements FFFFFF7F)
     (pcbplotparams
-      (layerselection 0x010fc_ffffffff)
+      (layerselection 0x010f0_ffffffff)
       (usegerberextensions false)
       (usegerberattributes false)
       (usegerberadvancedattributes false)
@@ -88,9 +95,9 @@
       (subtractmaskfromsilk false)
       (outputformat 1)
       (mirror false)
-      (drillshape 1)
+      (drillshape 0)
       (scaleselection 1)
-      (outputdirectory ""))
+      (outputdirectory "gerber/"))
   )
 
   (net 0 "")
@@ -2674,7 +2681,7 @@
   (segment (start 174.86 113.134) (end 174.86 111.934) (width 0.254) (layer F.Cu) (net 37))
   (segment (start 174.86 111.934) (end 172.828 109.902) (width 0.254) (layer F.Cu) (net 37))
 
-  (zone (net 2) (net_name GND) (layer F.Cu) (tstamp 5D05EE2C) (hatch edge 0.508)
+  (zone (net 2) (net_name GND) (layer F.Cu) (tstamp 5D4C1837) (hatch edge 0.508)
     (connect_pads thru_hole_only (clearance 0.254))
     (min_thickness 0.254)
     (fill yes (arc_segments 32) (thermal_gap 0.508) (thermal_bridge_width 1.016) (smoothing chamfer))
@@ -3661,7 +3668,7 @@
       )
     )
   )
-  (zone (net 1) (net_name +5V) (layer B.Cu) (tstamp 0) (hatch edge 0.508)
+  (zone (net 1) (net_name +5V) (layer B.Cu) (tstamp 5D4C1834) (hatch edge 0.508)
     (connect_pads thru_hole_only (clearance 0.254))
     (min_thickness 0.254)
     (fill yes (arc_segments 32) (thermal_gap 0.508) (thermal_bridge_width 1.016) (smoothing chamfer))

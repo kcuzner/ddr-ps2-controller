@@ -5,10 +5,10 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title ""
-Date ""
-Rev ""
-Comp ""
+Title "DDR PS2 Controller"
+Date "2019-08-07"
+Rev "A"
+Comp "Kevin Cuzner"
 Comment1 ""
 Comment2 ""
 Comment3 ""
