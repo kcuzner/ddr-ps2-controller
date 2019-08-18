@@ -14,6 +14,10 @@
 typedef enum { PINS_BTN0, PINS_BTN1, PINS_BTN2, PINS_BTN3, PINS_BTN4,
   PINS_BTN5, PINS_COUNT } PinNumber;
 
+#define SWITCHES_DDR DDRA
+#define SWITCHES_PORT PORTA
+#define SWITCHES_PIN PINA
+
 /**
  * Initializes all pins to inputs
  */

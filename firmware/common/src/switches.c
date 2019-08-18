@@ -12,22 +12,23 @@
 
 void switches_init(void)
 {
-  DDRA &= ~PINS_MASK;
-  PORTA &= ~PINS_MASK;
+  // Set up switches for open-drain operation
+  SWITCHES_DDR &= ~PINS_MASK;
+  SWITCHES_PORT &= ~PINS_MASK;
 }
 
 uint8_t switches_get_state(PinNumber pin)
 {
-  return !((PINA >> pin) & 0x01);
+  return !((SWITCHES_PIN >> pin) & 0x01);
 }
 
 void switches_set_state(PinNumber pin, uint8_t asserted)
 {
   if (asserted) {
-    DDRA |= 0xFF & (0x01 << pin);
+    SWITCHES_DDR |= 0xFF & (0x01 << pin);
   }
   else {
-    DDRA &= ~(0xFF & (0x01 << pin));
+    SWITCHES_DDR &= ~(0xFF & (0x01 << pin));
   }
 }
 
