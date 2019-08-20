@@ -33,7 +33,7 @@ void psx_init(void)
   SPCR = (1 << SPIE) | (1 << SPE) | (1 << DORD) | (1<< CPOL) | (1 << CPHA);
 
   // Enable timer interrupts
-  TIMSK = (1 << TOIE0);
+  TIMSK |= (1 << TOIE0);
 }
 
 void psx_tick(void)

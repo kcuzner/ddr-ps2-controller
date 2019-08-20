@@ -7,6 +7,7 @@
  */
 
 #include "switches.h"
+#include "leds.h"
 
 int main(void)
 {
@@ -14,6 +15,9 @@ int main(void)
 
   // Configure all pins.
   switches_init();
+
+  // Configure LEDs
+  leds_init();
 
   while (1)
   {
@@ -23,6 +27,8 @@ int main(void)
       if (switches_get_state(i))
         asserted = 1;
     }
+    if (asserted)
+      leds_set();
     switches_set_state(PINS_BTN5, asserted);
   }
 
