@@ -33,8 +33,8 @@ paste_origin_y = 90 * mm;
 
 /////// Stencil
 
-stencil_width = pcb_width + 20 * mm;
-stencil_length = pcb_length + 20 * mm;
+stencil_width = pcb_width + 10 * mm;
+stencil_length = pcb_length + 10 * mm;
 stencil_thickness = 0.1 * mm;
 
 /////////////// Solder Stencil //////////////////
