@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:ddr-ps2-controller-cache
-EELAYER 29 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -22,7 +22,7 @@ F 0 "J1" H 1218 2367 50  0000 C CNN
 F 1 "BTN0" H 1218 2276 50  0000 C CNN
 F 2 "ddr-ps2-controller:JST_EH_3_RA" H 1300 2050 50  0001 C CNN
 F 3 "~" H 1300 2050 50  0001 C CNN
-F 4 "455-1626-ND‎" H 1300 2050 50  0001 C CNN "Part Number"
+F 4 "455-1626-ND" H 1300 2050 50  0001 C CNN "Part Number"
 	1    1300 2050
 	-1   0    0    -1  
 $EndComp
@@ -34,7 +34,7 @@ F 0 "J2" H 1218 2867 50  0000 C CNN
 F 1 "BTN1" H 1218 2776 50  0000 C CNN
 F 2 "ddr-ps2-controller:JST_EH_3_RA" H 1300 2550 50  0001 C CNN
 F 3 "~" H 1300 2550 50  0001 C CNN
-F 4 "455-1626-ND‎" H 1300 2550 50  0001 C CNN "Part Number"
+F 4 "455-1626-ND" H 1300 2550 50  0001 C CNN "Part Number"
 	1    1300 2550
 	-1   0    0    -1  
 $EndComp
@@ -46,7 +46,7 @@ F 0 "J3" H 1218 3367 50  0000 C CNN
 F 1 "BTN2" H 1218 3276 50  0000 C CNN
 F 2 "ddr-ps2-controller:JST_EH_3_RA" H 1300 3050 50  0001 C CNN
 F 3 "~" H 1300 3050 50  0001 C CNN
-F 4 "455-1626-ND‎" H 1300 3050 50  0001 C CNN "Part Number"
+F 4 "455-1626-ND" H 1300 3050 50  0001 C CNN "Part Number"
 	1    1300 3050
 	-1   0    0    -1  
 $EndComp
@@ -58,7 +58,7 @@ F 0 "J4" H 1218 3867 50  0000 C CNN
 F 1 "BTN3" H 1218 3776 50  0000 C CNN
 F 2 "ddr-ps2-controller:JST_EH_3_RA" H 1300 3550 50  0001 C CNN
 F 3 "~" H 1300 3550 50  0001 C CNN
-F 4 "455-1626-ND‎" H 1300 3550 50  0001 C CNN "Part Number"
+F 4 "455-1626-ND" H 1300 3550 50  0001 C CNN "Part Number"
 	1    1300 3550
 	-1   0    0    -1  
 $EndComp
@@ -100,7 +100,7 @@ F 0 "J7" H 9530 1592 50  0000 L CNN
 F 1 "BTN4" H 9530 1501 50  0000 L CNN
 F 2 "ddr-ps2-controller:JST_EH_3_RA" H 9450 1550 50  0001 C CNN
 F 3 "~" H 9450 1550 50  0001 C CNN
-F 4 "455-1626-ND‎" H 9450 1550 50  0001 C CNN "Part Number"
+F 4 "455-1626-ND" H 9450 1550 50  0001 C CNN "Part Number"
 	1    9450 1550
 	1    0    0    -1  
 $EndComp
@@ -433,7 +433,7 @@ F 0 "J8" H 9530 2492 50  0000 L CNN
 F 1 "BTN5/UPSTREAM" H 9530 2401 50  0000 L CNN
 F 2 "ddr-ps2-controller:JST_EH_3_RA" H 9450 2450 50  0001 C CNN
 F 3 "~" H 9450 2450 50  0001 C CNN
-F 4 "455-1626-ND‎" H 9450 2450 50  0001 C CNN "Part Number"
+F 4 "455-1626-ND" H 9450 2450 50  0001 C CNN "Part Number"
 	1    9450 2450
 	1    0    0    -1  
 $EndComp
