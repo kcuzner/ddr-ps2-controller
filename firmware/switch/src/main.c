@@ -9,6 +9,8 @@
 #include "switches.h"
 #include "leds.h"
 
+#include <avr/interrupt.h>
+
 int main(void)
 {
   uint8_t asserted = 0;
@@ -18,6 +20,8 @@ int main(void)
 
   // Configure LEDs
   leds_init();
+
+  sei();
 
   while (1)
   {

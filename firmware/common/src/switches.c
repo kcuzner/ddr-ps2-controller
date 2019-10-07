@@ -15,6 +15,7 @@ void switches_init(void)
   // Set up switches for open-drain operation
   SWITCHES_DDR &= ~PINS_MASK;
   SWITCHES_PORT &= ~PINS_MASK;
+  SWITCHES_PUE |= PINS_MASK;
 }
 
 uint8_t switches_get_state(PinNumber pin)

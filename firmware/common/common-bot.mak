@@ -22,7 +22,7 @@ size:
 # Flash programming
 
 install: $(BINDIR)/$(BINARY).hex
-	$(AVRDUDE) -c $(PROGRAMMER) -p $(PMCU) -e -U flashw:$(BINDIR)/$(PROJECT).hex
+	$(AVRDUDE) -c $(PROGRAMMER) -p $(PMCU) -e -U flash:w:$(BINDIR)/$(PROJECT).hex
 
 fuse: $(BINDIR)/$(FUSES).bin
 	$(AVRDUDE) -c $(PROGRAMMER) -p $(PMCU) -U lfuse:w:0x$(shell dd if=$< bs=1 count=1 | od -An -t x1 | tr -d ' '):m
