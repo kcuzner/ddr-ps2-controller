@@ -4,6 +4,7 @@
 *.bck
 *.net
 *.kicad_pcb-bak
+*.sch-bak
 kicad/$*
 kicad/*.lst
 kicad/*.csv

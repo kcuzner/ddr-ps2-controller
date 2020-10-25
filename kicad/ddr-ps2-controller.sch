@@ -1,13 +1,12 @@
 EESchema Schematic File Version 4
-LIBS:ddr-ps2-controller-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "DDR PS2 Controller"
-Date "2019-08-07"
-Rev "A"
+Date "2020-10-25"
+Rev "B"
 Comp "Kevin Cuzner"
 Comment1 ""
 Comment2 ""
@@ -328,7 +327,7 @@ Wire Wire Line
 Wire Wire Line
 	3000 800  5450 800 
 $Comp
-L MCU_Microchip_ATtiny:ATtiny20-MMH U1
+L ddr-ps2-controller-rescue:ATtiny20-MMH-MCU_Microchip_ATtiny U1
 U 1 1 5D070DC4
 P 2500 5300
 F 0 "U1" H 1956 5346 50  0000 R CNN
@@ -358,7 +357,7 @@ U 1 1 5D07BD0F
 P 5700 7200
 F 0 "J5" H 5750 7617 50  0000 C CNN
 F 1 "ISCP" H 5750 7526 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_2x05_P2.54mm_Vertical_SMD" H 5700 7200 50  0001 C CNN
+F 2 "ddr-ps2-controller:CnC_3020_10_0300" H 5700 7200 50  0001 C CNN
 F 3 "~" H 5700 7200 50  0001 C CNN
 	1    5700 7200
 	1    0    0    -1  
@@ -639,27 +638,6 @@ Wire Wire Line
 	5400 3000 5400 3500
 Text Notes 3900 1250 0    50   ~ 0
 LED colors:\n\n- Red: 732-12023-1-ND\n- Blue: 732-12021-1-ND
-Wire Wire Line
-	5500 7000 3600 7000
-Wire Wire Line
-	3600 7000 3600 5700
-Wire Wire Line
-	3600 5700 3100 5700
-$Comp
-L power:GND #PWR01
-U 1 1 5CFCAA8B
-P 5400 7550
-F 0 "#PWR01" H 5400 7300 50  0001 C CNN
-F 1 "GND" H 5405 7377 50  0000 C CNN
-F 2 "" H 5400 7550 50  0001 C CNN
-F 3 "" H 5400 7550 50  0001 C CNN
-	1    5400 7550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5400 7550 5400 7100
-Wire Wire Line
-	5400 7100 5500 7100
 $Comp
 L power:GND #PWR04
 U 1 1 5CFCDF14
@@ -685,21 +663,7 @@ NoConn ~ 6000 7200
 Wire Wire Line
 	3100 5900 3500 5900
 Wire Wire Line
-	3500 5900 3500 7200
-Wire Wire Line
 	3500 7200 5500 7200
-Wire Wire Line
-	3100 5400 3400 5400
-Wire Wire Line
-	3400 5400 3400 7300
-Wire Wire Line
-	3400 7300 5500 7300
-Wire Wire Line
-	3100 5800 3300 5800
-Wire Wire Line
-	3300 5800 3300 7400
-Wire Wire Line
-	3300 7400 5500 7400
 $Comp
 L Connector_Generic:Conn_01x09 J6
 U 1 1 5CFED000
@@ -763,17 +727,13 @@ F 3 "~" H 4600 5800 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	3600 5700 4350 5700
-Wire Wire Line
 	4350 5700 4350 4800
 Wire Wire Line
 	4350 4800 8750 4800
-Connection ~ 3600 5700
 Text Label 3800 5700 0    50   ~ 0
 MOSI
 Wire Wire Line
 	4450 5800 4050 5800
-Connection ~ 3300 5800
 Text Label 3800 5800 0    50   ~ 0
 MISO
 Text Label 4850 5800 0    50   ~ 0
@@ -800,12 +760,9 @@ Wire Wire Line
 Wire Wire Line
 	5600 4700 5600 5600
 Wire Wire Line
-	3400 5400 3800 5400
-Wire Wire Line
 	6350 5400 6350 5300
 Wire Wire Line
 	6350 5300 8750 5300
-Connection ~ 3400 5400
 Text Label 5250 5400 0    50   ~ 0
 SCK
 $Comp
@@ -887,7 +844,7 @@ Wire Wire Line
 Wire Wire Line
 	4250 6500 4250 5600
 Wire Wire Line
-	4250 5600 3100 5600
+	4250 5600 3600 5600
 Text Label 3800 5600 0    50   ~ 0
 ACK
 Text Label 4950 6500 0    50   ~ 0
@@ -1058,8 +1015,6 @@ Wire Wire Line
 Wire Wire Line
 	4050 5800 4050 5150
 Connection ~ 4050 5800
-Wire Wire Line
-	4050 5800 3300 5800
 Wire Wire Line
 	3600 4650 3600 5200
 Wire Wire Line
@@ -1386,4 +1341,95 @@ Wire Wire Line
 	5450 1750 5450 1250
 Text Notes 6850 1100 0    50   ~ 0
 Only populate one of each\npair (top vs bottom)
+$Comp
+L Device:R R18
+U 1 1 5F9910DD
+P 5250 7100
+F 0 "R18" V 5043 7100 50  0000 C CNN
+F 1 "0" V 5134 7100 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 5180 7100 50  0001 C CNN
+F 3 "~" H 5250 7100 50  0001 C CNN
+	1    5250 7100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5400 7100 5500 7100
+$Comp
+L power:GND #PWR0117
+U 1 1 5F9A3A1E
+P 5000 7500
+F 0 "#PWR0117" H 5000 7250 50  0001 C CNN
+F 1 "GND" H 5005 7327 50  0000 C CNN
+F 2 "" H 5000 7500 50  0001 C CNN
+F 3 "" H 5000 7500 50  0001 C CNN
+	1    5000 7500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5000 7500 5000 7100
+Wire Wire Line
+	5000 7100 5100 7100
+$Comp
+L Device:R R16
+U 1 1 5F9B141C
+P 3700 6950
+F 0 "R16" V 3493 6950 50  0000 C CNN
+F 1 "1K" V 3584 6950 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 3630 6950 50  0001 C CNN
+F 3 "~" H 3700 6950 50  0001 C CNN
+	1    3700 6950
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3500 5900 3500 7200
+Wire Wire Line
+	3100 5700 3700 5700
+Wire Wire Line
+	3100 5400 3800 5400
+Wire Wire Line
+	5500 7300 3600 7300
+Wire Wire Line
+	3600 7300 3600 5600
+Connection ~ 3600 5600
+Wire Wire Line
+	3600 5600 3100 5600
+Text Notes 1500 7350 0    50   ~ 0
+TPI Notes:\nTPICLK <=> ISP CLK (7)\nTPIDATA <=> ISP MOSI (1)\nAs a CYA, both the ISP MISO (9) and\nMOSI are connected through a\nresistor. Ideally, the resistor to ISP\nMISO should be depopulated.
+Wire Wire Line
+	3100 5800 4050 5800
+Wire Wire Line
+	3700 7100 3700 7400
+Wire Wire Line
+	3700 7400 5500 7400
+Wire Wire Line
+	5500 7000 4400 7000
+Wire Wire Line
+	4000 7000 4000 6700
+Wire Wire Line
+	4000 6700 3700 6700
+Wire Wire Line
+	3700 6700 3700 5700
+Connection ~ 3700 5700
+Wire Wire Line
+	3700 5700 4350 5700
+Wire Wire Line
+	3700 6700 3700 6800
+Connection ~ 3700 6700
+Text Label 3950 7400 0    50   ~ 0
+ISP_MISO
+Wire Wire Line
+	4100 7000 4000 7000
+$Comp
+L Device:R R17
+U 1 1 5FA25BB5
+P 4250 7000
+F 0 "R17" V 4043 7000 50  0000 C CNN
+F 1 "0" V 4134 7000 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 4180 7000 50  0001 C CNN
+F 3 "~" H 4250 7000 50  0001 C CNN
+	1    4250 7000
+	0    1    1    0   
+$EndComp
+Text Label 4500 7000 0    50   ~ 0
+ISP_MOSI
 $EndSCHEMATC

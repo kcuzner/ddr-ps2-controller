@@ -1,3 +1,4 @@
 (sym_lib_table
   (lib (name ddr-ps2-controller)(type Legacy)(uri ${KIPRJMOD}/ddr-ps2-controller.lib)(options "")(descr ""))
+  (lib (name ddr-ps2-controller-rescue)(type Legacy)(uri ${KIPRJMOD}/ddr-ps2-controller-rescue.lib)(options "")(descr ""))
 )
