@@ -12,15 +12,6 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-typedef enum {
-  PSX_FLAG_NONE = 0,
-  PSX_FLAG_RECEIVED = 1,
-  PSX_FLAG_SENT = 2,
-} PSXReceivedFlags;
-
-static volatile PSXReceivedFlags flags = PSX_FLAG_NONE;
-static volatile uint8_t received = 0;
-
 void psx_init(void)
 {
   // Set up ack pin
@@ -38,12 +29,6 @@ void psx_init(void)
 
 void psx_tick(void)
 {
-  if (flags & PSX_FLAG_RECEIVED)
-  {
-    hook_psx_on_receive(received);
-  }
-
-  flags = 0;
 }
 
 void psx_ack(void)
@@ -70,8 +55,16 @@ void __attribute__((weak)) hook_psx_on_receive(uint8_t received)
  */
 ISR(SPI_vect)
 {
+  uint8_t received;
   received = SPDR;
-  flags |= PSX_FLAG_RECEIVED;
+  hook_psx_on_receive(received);
+}
+
+/**
+ * Pin change interrupt vector
+ */
+ISR(PCX_ATT_VEC)
+{
 }
 
 /**

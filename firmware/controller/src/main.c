@@ -11,14 +11,22 @@
 #include "psx.h"
 
 #include <stdint.h>
+#include <avr/interrupt.h>
+#include <avr/io.h>
 
 int main(void)
 {
+  // Speed up the clock
+  CCP = 0xD8;
+  CLKPSR = 0;
+
   // Configure all pins. They are default input and this personality uses them
   // all as inputs.
   switches_init();
   // Configure the PSX Bus
   psx_init();
+
+  sei();
 
   while (1)
   {
@@ -35,6 +43,7 @@ int main(void)
       buttons |= PSX_PAD_O;
     if (switches_get_state(PINS_BTN5))
       buttons |= PSX_PAD_X;
+    psx_pad_update(buttons);
     psx_tick();
   }
 

@@ -16,6 +16,12 @@
 #define PSX_ACK_PORT PORTB
 #define PSX_ACK PB0
 
+#define PSX_ATT_VEC PCINT0_vect
+#define PSX_ATT_PCIE PCIE0
+#define PSX_ATT_PCMSK PCINT6
+#define PSX_ATT_PIN PINA
+#define PSX_ATT PA6
+
 /**
  * PSX bus initialization
  */
@@ -38,7 +44,7 @@ void psx_ack(void);
 void psx_send(uint8_t data);
 
 /**
- * Hook function for when a PSX byte is received. Executed in the main context.
+ * Hook function for when a PSX byte is received. Executed in the interrupt context
  */
 void hook_psx_on_receive(uint8_t received);
 
