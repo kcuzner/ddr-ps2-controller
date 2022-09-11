@@ -43,3 +43,10 @@ Some things still remain I can think of off the top of my head:
    tape, paint, or something else to keep the myriad cables straight while wiring this up.
  - I need to actually construct the wood/metal/plastic enclosure for this. I have a plan, but it's
    not posted here.
+
+## References
+
+ - http://www.raphnet.net/electronique/psx_adaptor/Playstation.txt
+ - https://gist.github.com/scanlime/5042071
+ - https://store.curiousinventor.com/guides/PS2/
+ - https://blog.nearfuturelaboratory.com/2008/06/19/playstation2-logic-analysis/
