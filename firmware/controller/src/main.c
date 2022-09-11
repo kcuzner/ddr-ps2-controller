@@ -44,7 +44,6 @@ int main(void)
     if (switches_get_state(PINS_BTN5))
       buttons |= PSX_PAD_X;
     psx_pad_update(buttons);
-    psx_tick();
   }
 
   return 0;
