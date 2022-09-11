@@ -10,16 +10,19 @@
 #include "psx_pad.h"
 #include "psx.h"
 
-#define PSX_BUTTONS_CONST 0x0003
 #define PSX_PAD_TYPE 0x41
+#define PSX_PAD_NC 0x5A
 
-static uint8_t buttons[2];
+union {
+  // Assumption: AVR is little-endian
+  PSXPadButtons update;
+  uint8_t buffer[2];
+} buttons;
 
 void psx_pad_update(PSXPadButtons update)
 {
-  update |= PSX_BUTTONS_CONST;
-  buttons[0] = ~(update & 0xFF);
-  buttons[1] = !((update >> 8) & 0xFF);
+  // Buttons are low-asserted
+  buttons.update = ~update;
 }
 
 void hook_psx_on_receive(uint8_t received)
@@ -30,7 +33,7 @@ void hook_psx_on_receive(uint8_t received)
   {
     byteNumber = 0; // Reset back to start
     psx_ack();
-    psx_send(~PSX_PAD_TYPE);
+    psx_send(PSX_PAD_TYPE);
   }
 
   if (byteNumber == 1)
@@ -39,7 +42,7 @@ void hook_psx_on_receive(uint8_t received)
     {
       psx_ack();
       // Send the preamble
-      psx_send(0xA5);
+      psx_send(PSX_PAD_NC);
     }
   }
   else if (byteNumber == 2)
@@ -47,7 +50,7 @@ void hook_psx_on_receive(uint8_t received)
     if (received == 0x00)
     {
       psx_ack();
-      psx_send(buttons[0]);
+      psx_send(buttons.buffer[0]);
     }
   }
   else if (byteNumber == 3)
@@ -55,7 +58,7 @@ void hook_psx_on_receive(uint8_t received)
     if (received == 0x00)
     {
       psx_ack();
-      psx_send(buttons[1]);
+      psx_send(buttons.buffer[1]);
     }
   }
 

@@ -88,7 +88,8 @@ void psx_ack(void)
 
 void psx_send(uint8_t data)
 {
-  SPDR = data;
+  // The output is inverted, as we're driving a FET
+  SPDR = ~data;
 }
 
 void __attribute__((weak)) hook_psx_on_receive(uint8_t received)
@@ -102,6 +103,8 @@ ISR(SPI_vect)
 {
   uint8_t received;
   received = SPDR;
+  // Default data to send is idle
+  SPDR = 0;
   hook_psx_on_receive(received);
 }
 
