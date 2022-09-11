@@ -23,3 +23,23 @@ end, here is the main featureset:
    - Strangely enough, it was cheaper to just use a constant-current controlled LED driver than to use a discrete MOSFET
      of an appropriate size.
 
+## Project Status
+
+ - This project has not been fully assembled or tested. But:
+ - Firmware builds and installs on both board personalities.
+ - The LED/Switch boards work great! Mostly. Some quirks with the LEDs always being partially on,
+   but whatever.
+ - With a [USB-PS2 adapter](https://www.amazon.com/gp/product/B01J4JVFXI) I've verified on an
+   oscilloscope that the controller board can be polled and that it appears to send back the
+   correct responses. So the PSX bus implementation is at least superficially correct.
+ - The switch boards can connect to the controller board and on an oscilloscope I've verified that
+   everything toggles.
+
+Some things still remain I can think of off the top of my head:
+
+ - I need to test it with an actual PS2. Now to convince my wife to let me touch her PS2...
+ - I need to verify that the button/switch mappings are correct for a dance pad. I unfortunately
+   didn't mark the PCB silkscreen in any way for that, so I'm going to have to resort to colored
+   tape, paint, or something else to keep the myriad cables straight while wiring this up.
+ - I need to actually construct the wood/metal/plastic enclosure for this. I have a plan, but it's
+   not posted here.
