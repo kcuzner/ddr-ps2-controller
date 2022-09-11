@@ -12,6 +12,8 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
+static uint8_t acked;
+
 void psx_init(void)
 {
   // Set up ack pin
@@ -25,6 +27,8 @@ void psx_init(void)
 
   // Enable timer interrupts
   TIMSK |= (1 << TOIE0);
+
+  psx_idle();
 }
 
 void psx_tick(void)
@@ -35,10 +39,16 @@ void psx_ack(void)
 {
   // Set the ack pin and turn on the timer for 4us. It must be more than 2us
   // due to the nominal frequency/period of the PSX Bus (500KHz, 2us).
-
+  acked = 1;
   PSX_ACK_PORT |= (1 << PSX_ACK);
   TCNT0 = 224;
   TCCR0B = (1 << CS00); // CLKIO, no prescaler
+}
+
+void psx_idle(void)
+{
+  // Very simply set our idle byte, which is 0xFF (or 0x0 since we're inverted)
+  psx_send(0);
 }
 
 void psx_send(uint8_t data)
@@ -57,13 +67,18 @@ ISR(SPI_vect)
 {
   uint8_t received;
   received = SPDR;
+  acked = 0;
   hook_psx_on_receive(received);
+  if (!acked)
+  {
+    psx_idle();
+  }
 }
 
 /**
  * Pin change interrupt vector
  */
-ISR(PCX_ATT_VEC)
+ISR(PSX_ATT_VEC)
 {
 }
 

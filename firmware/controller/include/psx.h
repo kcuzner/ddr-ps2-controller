@@ -38,6 +38,11 @@ void psx_tick(void);
 void psx_ack(void);
 
 /**
+ * Configures the next byte to be our idle byte
+ */
+void psx_idle(void);
+
+/**
  * Sends data via the PSX bus
  * data: Data to send
  */

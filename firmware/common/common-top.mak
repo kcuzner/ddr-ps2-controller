@@ -38,6 +38,11 @@ ASFLAGS = $(INCLUDE) D_FCPU=$(F_CPU) -mmcu=$(MCU) -x assember-with-cpp\
 		  -Wa,-gstabs-ahlms=$(addprefix $(OBJDIR)/,$(notdir $(<:.s=.lst)))
 LDFLAGS=-Wl,--gc-sections -mmcu=$(MCU) -lm $(LIBS)
 
+# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=105523
+ifneq ($(findstring 12.,$(shell $(CC) --version 2>/dev/null)),)
+	GCFLAGS += --param=min-pagesize=0
+endif
+
 # Tools
 CC = avr-gcc
 OBJCOPY = avr-objcopy
